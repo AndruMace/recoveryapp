@@ -66,14 +66,14 @@ function MyTabs() {
 }
 
 export default function App() {
-  const [daysState, setDaysState] = React.useState({days: '0', updateDays: updateDays})
+  const [daysState, setDaysState] = React.useState('0')
 
   const updateDays = (days) => {
-    setDaysState((prev) => [...prev, days])
+    setDaysState(days)
   }
-  
+
   return (
-    <DaysContext.Provider value={daysState}>
+    <DaysContext.Provider value={{days: daysState, updateDays: updateDays}}>
       <NavigationContainer>
         <MyTabs/>
       </NavigationContainer>

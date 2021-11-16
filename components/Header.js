@@ -9,12 +9,18 @@ export default function MyHeader({ navigation }) {
     const DayContext = useContext(DaysContext);
     return (
         <View style={styles.customHeader}>
-            <Text style={styles.headerText}>{DayContext.days}</Text>
+            <Ionicons
+                onPress={() => navigation.navigate('Help')}
+                name={'help-circle-outline'} 
+                size={30} color={'black'}
+                style={styles.helpIcon}
+            />
+            <Text style={styles.headerText}>{`Days: ${DayContext.days}`}</Text>
             <Ionicons
             onPress={() => navigation.navigate('EditDays')}
             name={'pencil-outline'} 
             size={20} color={'black'}
-            style={styles.headerIcon}
+            style={styles.editIcon}
             />
         </View>
     )
@@ -28,17 +34,17 @@ const styles = StyleSheet.create({
     padding: '1.5%',
     paddingTop: '7.5%',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     },
     headerText: {
     fontSize: 20,
-    paddingRight: '2.5%',
-    paddingLeft: '2.5%'
+    // paddingRight: '2.5%',
+    // paddingLeft: '2.5%'
     },
-    headerIcon: {
+    editIcon: {
     borderWidth: 1,
     borderColor: '#000000',
     borderRadius: 10,
     padding: '1%'
-    }
+    },
 })

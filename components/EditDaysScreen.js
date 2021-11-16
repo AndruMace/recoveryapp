@@ -15,8 +15,6 @@ async function storeData(key, value) {
 
 export default function EditDaysScreen({ navigation }) {
   let DayContext = useContext(DaysContext)
-  // console.log(`LOG 1: ${}`)
-  console.log(DaysContext._currentValue)
   
   const [days, setDays] = useState('')
 
@@ -66,15 +64,16 @@ const styles = StyleSheet.create({
     margin: 20
   },
   input: {
-    height: '10%',
+    height: '15%',
     width: '90%',
     alignSelf: 'center',
     marginBottom: 10,
     borderWidth: 1,
     borderRadius: 10,
-    padding: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: 'white',
     color: 'black',
   },

@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "An app to aid individuals in recovery from all types of addictions, both behavioural and substance-based, ",
+    "githubUrl": "https://github.com/AndruMace/recoveryapp"
   }
 }
