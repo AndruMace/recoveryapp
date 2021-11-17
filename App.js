@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,6 +10,7 @@ import MotivationsScreen from './components/MotivationsScreen';
 import GameplanScreen from './components/GameplanScreen';
 import MyHeader from './components/Header';
 import { DaysContext } from './components/Context';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,9 +38,7 @@ function MyTabs() {
                   
           return (
             <View style={styles.iconContainer}>
-              <Ionicons iconStyle={{borderWidth:'1', borderRadius: 'size/2'}} 
-                name={iconName} size={size} color={color} 
-              />
+              <Ionicons name={iconName} size={size} color={color} style={styles.iconStyle}/>
             </View>
           )
         },
@@ -53,6 +52,11 @@ function MyTabs() {
         tabBarStyle: {
           backgroundColor: '#ef3e36',
           height: '8%',
+          display: 'flex',
+          flexDirection: 'row',
+          // alignItems: 'space-between',
+          // alignContent: 'flex-end',
+          // justifyContent: 'flex-end'
         }
       })}
     >
@@ -66,7 +70,22 @@ function MyTabs() {
 }
 
 export default function App() {
-  const [daysState, setDaysState] = React.useState('0')
+  let days;
+
+  useEffect(() => {
+    async function fetchDays() {
+      let key = 'daysClean'
+      try {
+        days = await AsyncStorage.getItem(key)
+      } catch(e) {
+        console.log(`ASYNC STORAGE fetchDays ERROR ::: ${e}`)
+      }
+    }
+
+    fetchDays()
+    
+  }, [])
+  const [daysState, setDaysState] = React.useState(days || '0')
 
   const updateDays = (days) => {
     setDaysState(days)
@@ -86,11 +105,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#ef3e36',
     borderRadius: 100,
     elevation: 10,
-    padding: '7.5%',
+    // padding: '7.5%',
+    // minWidth: 50,
+    // minHeight: 30,
     shadowColor: 'black',
     shadowOffset: {width: 1, height: 1},
     shadowRadius: 5,
     shadowOpacity: 100,
+  },
+  iconStyle: {
+    width: '100%',
+    padding: '10%'
   }
 })
 

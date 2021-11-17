@@ -5,6 +5,8 @@ import SupportScreen from './SupportScreen';
 import LearnScreen from './LearnScreen';
 import EditDaysScreen from './EditDaysScreen';
 import HelpScreen from './Help';
+import ContactScreen from './Contact';
+import PrivacyScreen from './Privacy';
 
 const HomeStack = createNativeStackNavigator();
 
@@ -19,6 +21,8 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name="Learn" component={LearnScreen} />
         <HomeStack.Screen name="Help" component={HelpScreen} />
         <HomeStack.Screen name="EditDays" component={EditDaysScreen} />
+        <HomeStack.Screen name="Contact" component={ContactScreen} />
+        <HomeStack.Screen name="Privacy" component={PrivacyScreen} />
       </HomeStack.Navigator>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 
-export default function LearnScreen() {
+export default function HelpScreen({ navigation }) {
     const [loaded] = useFonts({
       Dosis: require('../assets/fonts/Dosis/static/Dosis-ExtraBold.ttf'),
       DosisLight: require('../assets/fonts/Dosis/static/Dosis-Medium.ttf'),
@@ -29,6 +29,10 @@ export default function LearnScreen() {
             {'\n\n'}
             Good luck. You've got this.
         </Text>
+        <View style={styles.ppcm}>
+          <Text onPress={() => navigation.navigate('Privacy')} style={styles.endtext}>Privacy Policy</Text>
+          <Text onPress={() => navigation.navigate('Contact')} style={styles.endtext}>Contact Me</Text>
+        </View>
       </View>
     );
   }
@@ -37,8 +41,7 @@ const styles = StyleSheet.create({
   viewStyle: {
     flex: 1, 
     flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignContent:  'center',
     alignItems: 'center',
     backgroundColor: '#2e282a'
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
   leadText: {
     color: 'white',
     width: '90%',
-    margin: 20,
+    marginTop: 20,
     textAlign: 'center',
     fontSize: 24,
     fontFamily: 'Dosis'
@@ -56,5 +59,17 @@ const styles = StyleSheet.create({
       fontFamily: 'DosisLight',
       color: 'white',
       width: '85%',
+  },
+  ppcm: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'space-around',
+    width: '100%'
+  },
+  endtext: {
+    color: 'white',
+    padding: '5%',
+    textDecorationColor: 'white',
+    textDecorationLine: 'underline'
   }
 })
