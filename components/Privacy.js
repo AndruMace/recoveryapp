@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Linking } from 'react-native';
 import { useFonts } from 'expo-font';
 
 export default function PrivacyScreen() {
@@ -25,7 +25,14 @@ export default function PrivacyScreen() {
                 or saved with us in any capacity. The apps interactions with phone storage extend only as far as are absolutely required for the
                 app to read and write the data entered by you. If you delete this applications, please note that all related data
                 will likely be deleted as well, so be sure to save anything you entered to another source if you wish to keep it.
-                {'\n\n\n\n\n'}
+                {'\n\n'}
+                This app is open-source so please feel free to open up an issue or contribute on Github:
+                <Text style={styles.link}
+                onPress={() => Linking.openURL('https://github.com/AndruMace/recoveryapp')}
+                >
+                {' '}https://github.com/AndruMace/recoveryapp
+              </Text>
+                
             </Text>
        </ScrollView>
       </View>
@@ -33,6 +40,10 @@ export default function PrivacyScreen() {
   }
 
 const styles = StyleSheet.create({
+  link: {
+    textDecorationLine: 'underline',
+    color: '#1DA1F2'
+  },
   viewStyle: {
     flex: 1, 
     flexDirection: 'column',

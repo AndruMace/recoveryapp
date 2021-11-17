@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, ScrollView, View, Pressable, Linking } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Linking } from 'react-native';
 import { useFonts } from 'expo-font';
 
 export default function LearnScreen() {

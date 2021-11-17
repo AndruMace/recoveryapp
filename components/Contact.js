@@ -23,12 +23,23 @@ export default function ContactScreen() {
             feel free to reach out to me. My email is amacedeveloper@gmail.com, and my phone number is +1 202-817-4826 
             (unfortuantely, I only speak English). I'd love to hear from someone that enjoys my app and could get more out of it,
             so please don't hesitate. I look forward to speaking with you :)
+            {'\n\n'}
+            This app is open-source so please feel free to open up an issue or contribute on Github:
+            <Text style={styles.link}
+                onPress={() => Linking.openURL('https://github.com/AndruMace/recoveryapp')}
+                >
+                {' '}https://github.com/AndruMace/recoveryapp
+              </Text>
         </Text>
       </View>
     );
   }
 
 const styles = StyleSheet.create({
+  link: {
+    textDecorationLine: 'underline',
+    color: '#1DA1F2'
+  },
   viewStyle: {
     flex: 1, 
     flexDirection: 'column',
