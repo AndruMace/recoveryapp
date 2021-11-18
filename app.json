@@ -4,7 +4,7 @@
     "slug": "recovery",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/favicon.ico",
+    "icon": "./assets/favicon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "cover",
@@ -17,16 +17,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.andrumace.recovery"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/favicon.ico",
+        "foregroundImage": "./assets/favicon.png",
         "backgroundColor": "#ef3e36"
-      }
+      },
+      "package": "com.andrumace.recovery"
     },
     "web": {
-      "favicon": "./assets/favicon.ico"
+      "favicon": "./assets/favicon.png"
     },
     "description": "An app to aid individuals in recovery from all types of addictions, both behavioural and substance-based, ",
     "githubUrl": "https://github.com/AndruMace/recoveryapp"

@@ -51,12 +51,9 @@ function MyTabs() {
         tabBarInactiveTintColor: '#333333',
         tabBarStyle: {
           backgroundColor: '#ef3e36',
-          height: '8%',
+          height: '10%',
           display: 'flex',
           flexDirection: 'row',
-          // alignItems: 'space-between',
-          // alignContent: 'flex-end',
-          // justifyContent: 'flex-end'
         }
       })}
     >
@@ -71,21 +68,22 @@ function MyTabs() {
 
 export default function App() {
   let days;
+  const [daysState, setDaysState] = React.useState(days || '0')
 
   useEffect(() => {
     async function fetchDays() {
       let key = 'daysClean'
       try {
         days = await AsyncStorage.getItem(key)
+        setDaysState(days)
+        console.log(days)
       } catch(e) {
         console.log(`ASYNC STORAGE fetchDays ERROR ::: ${e}`)
       }
     }
 
     fetchDays()
-    
   }, [])
-  const [daysState, setDaysState] = React.useState(days || '0')
 
   const updateDays = (days) => {
     setDaysState(days)
